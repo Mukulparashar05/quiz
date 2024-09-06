@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #902753;
+            margin: 0;
+            
+            padding: 0;
+        }
+        .quiz-container {
+            width: 60%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answers li {
+            margin: 10px 0;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #a74828;
+            color: white;
+            border: none;
+
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #348821;
+        }
+        .timer {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Online Quiz</h1>
+        <div class="timer" id="timer">Time Left: 30:00</div>
+
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1.How to become memeber of robocon club?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q1" value="reference"> reference</li>
+                    <li><input type="radio" name="q1" value="test"> test</li>
+                    <li><input type="radio" name="q1" value="both"> both</li>
+                </ul>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. What is 2 + 2?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q2" value="3"> 3</li>
+                    <li><input type="radio" name="q2" value="4"> 4</li>
+                    <li><input type="radio" name="q2" value="5"> 5</li>
+                </ul>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Which planet is known as the red Planet?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q3" value="Earth"> Earth</li>
+                    <li><input type="radio" name="q3" value="Mars"> Mars</li>
+                    <li><input type="radio" name="q3" value="Jupiter"> Jupiter</li>
+                </ul>
+            </div>
+
+            <!-- Additional Questions -->
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. Who wrote 'half girlfriend'?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q4" value="chetan bhagat"> chetan bhagat</li>
+                    <li><input type="radio" name="q4" value="Mark Twain"> Mark Twain</li>
+                    <li><input type="radio" name="q4" value="Jane Austen"> Jane Austen</li>
+                </ul>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. What is the largest ocean on Earth?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q5" value="Atlantic Ocean"> Atlantic Ocean</li>
+                    <li><input type="radio" name="q5" value="Pacific Ocean"> Pacific Ocean</li>
+                    <li><input type="radio" name="q5" value="Indian Ocean"> Indian Ocean</li>
+                </ul>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. Which element has the chemical symbol O?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q6" value="Oxygen"> Oxygen</li>
+                    <li><input type="radio" name="q6" value="Gold"> Gold</li>
+                    <li><input type="radio" name="q6" value="Osmium"> Osmium</li>
+                </ul>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. What is the square root of 64?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q7" value="6"> 6</li>
+                    <li><input type="radio" name="q7" value="8"> 8</li>
+                    <li><input type="radio" name="q7" value="10"> 10</li>
+                </ul>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. Who painted the Mona Lisa?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q8" value="Leonardo da Vinci"> Leonardo da Vinci</li>
+                    <li><input type="radio" name="q8" value="Vincent van Gogh"> Vincent van Gogh</li>
+                    <li><input type="radio" name="q8" value="Pablo Picasso"> Pablo Picasso</li>
+                </ul>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. What is the capital of Japan?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q9" value="Beijing"> Beijing</li>
+                    <li><input type="radio" name="q9" value="Tokyo"> Tokyo</li>
+                    <li><input type="radio" name="q9" value="Seoul"> Seoul</li>
+                </ul>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. Who discovered zero?</p>
+                <ul class="answers">
+                    <li><input type="radio" name="q10" value="Marie Curie"> Marie Curie</li>
+                    <li><input type="radio" name="q10" value="Aryabhatta"> Aryabhatta</li>
+                    <li><input type="radio" name="q10" value="Isaac Newton"> Isaac Newton</li>
+                </ul>
+            </div>
+
+            <!-- Submit button -->
+            <input type="button" value="Submit" class="submit-btn" onclick="submitQuiz()">
+        </form>
+
+        <div id="result" style="display:none; margin-top: 20px;">
+            <h2>Your Score: <span id="score"></span>/10</h2>
+        </div>
+    </div>
+
+    <script>
+        let timeLeft = 30 * 60; // 30 minutes in seconds
+
+        function startTimer() {
+            const timerDisplay = document.getElementById('timer');
+            const interval = setInterval(function() {
+                let minutes = Math.floor(timeLeft / 60);
+                let seconds = timeLeft % 60;
+                seconds = seconds < 10 ? '0' + seconds : seconds; // Adds a zero for single digits
+
+                timerDisplay.innerText = `Time Left: ${minutes}:${seconds}`;
+                timeLeft--;
+
+                if (timeLeft < 0) {
+                    clearInterval(interval);
+                    submitQuiz(); // Auto-submit when time runs out
+                }
+            }, 1000);
+        }
+
+        function submitQuiz() {
+            const quizForm = document.forms['quizForm'];
+            let score = 0;
+
+            // Correct answers
+            const correctAnswers = {
+                q1: 'both',
+                q2: '4',
+                q3: 'Mars',
+                q4: 'chetan bhagat',
+                q5: 'Pacific Ocean',
+                q6: 'Oxygen',
+                q7: '8',
+                q8: 'Leonardo da Vinci',
+                q9: 'Tokyo',
+                q10: 'Aryabhatta'
+            };
+
+            // Check answers
+            for (let question in correctAnswers) {
+                const userAnswer = quizForm[question].value;
+                if (userAnswer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display result
+            document.getElementById('score').innerText = score;
+            document.getElementById('result').style.display = 'block';
+        }
+
+        // Start the timer when the page loads
+        window.onload = function() {
+            startTimer();
+        };
+    </script>
+</body>
+</html>
